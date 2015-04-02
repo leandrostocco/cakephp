@@ -128,13 +128,15 @@ abstract class ObjectRegistry
                 goto fail;
             }
         }
-        return;
+        goto done;
 
         fail:
         $msg .= ' with the following config: ';
         $msg .= var_export($existingConfig, true);
         $msg .= ' which differs from ' . var_export($config, true);
         throw new RuntimeException($msg);
+
+        done:
     }
 
     /**
